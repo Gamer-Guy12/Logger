@@ -12,11 +12,8 @@ void fileLog(const char* str) {
 
     const char* name;
 
-    if (file == NULL) {
-
-        sprintf(name, "%s/log_%ld.txt", dir, (long)ctime);
-        file = fopen(name, "a");
-    }
+    sprintf(name, "%s/log_%ld.txt", dir, (long)ctime);
+    file = fopen(name, "a");
 
     fprintf(file, str);
     fclose(file);
