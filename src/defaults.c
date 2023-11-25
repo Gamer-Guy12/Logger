@@ -4,14 +4,22 @@ void fileLog(const char* str) {
 
     static FILE* file = NULL;
     const char* dir = "logs";
-    time_t ctime;
-    time(&ctime);
+    static time_t ctime;
+    if (ctime == NULL) {
+        time(&ctime);
+
+    }
+
+    const char* name;
 
     if (file == NULL) {
-        const char* name;
 
         sprintf(name, "%slog_%ld.txt", dir, (long)ctime);
+        file = fopen(name, "a");
     }
+
+    fprintf(file, str);
+    fclose(file);
 
 }
 
