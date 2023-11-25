@@ -15,7 +15,7 @@ void fileLog(const char* str) {
     sprintf(name, "%s/log_%ld.txt", dir, (long)ctime);
     file = fopen(name, "a");
 
-    fprintf(file, str);
+    fprintf(file, "%s\n", str);
     fclose(file);
 
 }
