@@ -6,9 +6,10 @@
 #include <stdbool.h>
 #include <time.h>
 
-void (*logger) (const char* str);
+typedef void (*loggerfunc) (const char* str);
 
 void bindLogger(void (*func) (const char* str));
+loggerfunc logger(void (*func) (const char* str));
 
 void logInfo(const char* str);
 void logDebug(const char* str);

@@ -2,13 +2,13 @@
 
 void logInfo(const char* str) {
 
-    (*logger)(str);
+    logger(NULL)(str);
 
 }
 void logDebug(const char* str) {
 
     #ifdef DEBUG
-        (*logger)(str);
+        logger(NULL)(str);
     #endif
 
 }
@@ -18,7 +18,7 @@ void logWarning(const char* str) {
 
     sprintf(fstr, "Warning: %s", str);
 
-    (*logger)(fstr);
+    logger(NULL)(fstr);
 
 }
 void logError(int code, const char* str) {
@@ -26,6 +26,6 @@ void logError(int code, const char* str) {
     const char* fstr;
     sprintf(fstr, "Error: %d, %s", code, str);
 
-    (*logger)(fstr);
+    logger(NULL)(fstr);
 
 }
